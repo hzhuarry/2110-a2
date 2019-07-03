@@ -7,8 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 
-//this is a test comment
-//this is another test comment
 
 
 /**
@@ -56,7 +54,6 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
             if (n != head)
                 res= res + ", ";
             res= res + n.data;
-            n= n.succ;
         }
         return res + "]";
     }
