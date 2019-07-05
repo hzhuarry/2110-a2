@@ -87,7 +87,10 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     private Node append(E element) {
         // TODO item #4
         // This mid-size helper function will be used by other methods
-        throw new NotImplementedError();
+    	Node n = new Node(this.tail, element, null);
+    	(this.tail).succ = n;
+    	this.tail = n;
+        return n;
     }
     
     /** Append element to the end of this list and return true. */
