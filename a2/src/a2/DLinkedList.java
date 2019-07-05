@@ -39,7 +39,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     public @Override int size() {
         // TODO item #2
         // This is an extremely small method
-        return this.size();
+        return this.size;
     }
 
     /**
@@ -87,10 +87,17 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     private Node append(E element) {
         // TODO item #4
         // This mid-size helper function will be used by other methods
-    	Node n = new Node(this.tail, element, null);
-    	(this.tail).succ = n;
-    	this.tail = n;
-        return n;
+    	Node n = new Node(null, element, null);
+    	if(this.size == 0) {
+    		this.head = n;
+    		this.tail = n;
+    	} else {
+    		n.pred = this.tail;
+    		(this.tail).succ = n;
+    		this.tail = n;
+    	}
+    	this.size++;
+    	return n;
     }
     
     /** Append element to the end of this list and return true. */
@@ -99,7 +106,8 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Rely on helper methods to keep this method small
         // This is THE MOST IMPORTANT method to get right because it will be used
         // in nearly every test
-        throw new NotImplementedError();
+    	append(element);
+    	return true;
     }
     
     /**
