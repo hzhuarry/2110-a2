@@ -30,7 +30,6 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     	this.size = 0;
     	this.head = null;
     	this.tail = null;
-        throw new NotImplementedError();
     }
 
     /**
@@ -40,7 +39,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     public @Override int size() {
         // TODO item #2
         // This is an extremely small method
-        throw new NotImplementedError();
+        return this.size();
     }
 
     /**
@@ -72,7 +71,13 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // TODO item #3
         // This should use field tail and the pred fields in nodes.
         // Do NOT use field size.
-        throw new NotImplementedError();
+    	String res = "[";
+        for (Node n = tail; n != null; n= n.pred) {
+        	if (n != tail)
+        		res = res + ", ";
+        	res = res + n.data;
+        }
+        return res + "]";
     }
     
     /**
