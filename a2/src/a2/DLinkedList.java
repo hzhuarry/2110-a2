@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import junit.framework.AssertionFailedError;
+
 
 
 
@@ -223,10 +225,13 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         if(node.pred == null) {
         	this.head = n;
         	n.succ = node;
+        	node.pred = n;
         }
     	else {
     		n.pred = node.pred;
     		n.succ = node;
+    		node.pred = n;
+    		(node.pred).succ = n;
     	}
     	this.size++;
         return n;
@@ -326,7 +331,14 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
          * @throws AssertionFailedError if the list is not well-formed
          */
         private static void assertInvariants(DLinkedList<?> list) {
-            throw new NotImplementedError();
+        	try {
+        		assertEquals(list.getNode(0), list.head);
+        		assertEquals(list.getNode(list.size - 1), list.tail);
+        		assertEquals(list.size(), list.size);
+        	} catch(Error AssertionError){
+        		throw new AssertionFailedError();
+        	}
+        	
         }
 
         @Test
