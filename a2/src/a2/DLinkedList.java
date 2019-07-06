@@ -219,7 +219,17 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // This mid-size helper function will be used by other methods.
         // Do NOT test whether node is actually a Node of this list because
         // it will then not be a constant-time operation.
-        throw new NotImplementedError();
+    	Node n = new Node(null, element, null);
+        if(node.pred == null) {
+        	this.head = n;
+        	n.succ = node;
+        }
+    	else {
+    		n.pred = node.pred;
+    		n.succ = node;
+    	}
+    	this.size++;
+        return n;
     }
     
     /**
