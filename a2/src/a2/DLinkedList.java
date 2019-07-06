@@ -143,7 +143,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     			count--;
     		}
     	}
-    	return this.head;
+    	return null;
     }
     
     /**
@@ -159,7 +159,8 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Rely on helper methods to keep this method small.
         // Note that the helper method could throw the exception; doesn't
         // have to be done here.
-        throw new NotImplementedError();
+        getNode(index);
+        
     }
     
     /**
