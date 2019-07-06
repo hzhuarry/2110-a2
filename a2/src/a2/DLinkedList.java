@@ -125,7 +125,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Note that there are two ways to get to a node: from the head or from the tail.
         // This MUST use the fastest way for index.
         // (If h is exactly the middle, then either way is ok.)
-    	if(index > this.size())
+    	if(index > this.size()-1 || index < 0)
     		throw new IndexOutOfBoundsException();
     	if(index <= this.size() / 2) {
     		int count = 0;
