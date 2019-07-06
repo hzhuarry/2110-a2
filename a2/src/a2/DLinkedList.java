@@ -180,6 +180,9 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         if(index > this.size-1 || index < 0) {
         	throw new IndexOutOfBoundsException();
         }
+        E oldValue = getNode(index).data;
+        getNode(index).data = element;
+        return oldValue;
         
     }
     
