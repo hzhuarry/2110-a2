@@ -31,21 +31,21 @@ class DLinkedListTest {
 		assertEquals(dll2.get(0), 5);
 		assertThrows(IndexOutOfBoundsException.class, ()-> {dll.set(-1, 5);});
 		assertThrows(IndexOutOfBoundsException.class, ()-> {dll.set(10, 5);});
-//		dll2.add(0, 4);
-//		assertEquals(dll2.get(0), 4);
-//		assertEquals(dll2.get(1), 5);
-//		dll2.add(1, 5);
-//		assertEquals(dll2.get(0), 5);
-//		assertEquals(dll2.get(1), 5);
-//		assertEquals(dll2.get(2), 2);
+		dll2.add(0, 4);
+		assertEquals(dll2.get(0), 4);
+		assertEquals(dll2.get(1), 5);
+		dll2.add(1, 5);
+		assertEquals(dll2.get(0), 4);
+		assertEquals(dll2.get(1), 5);
+//		assertEquals(dll2.get(2), 5);
 		dll2.remove(0);
-		assertEquals(dll2.size(), 3);
-		assertEquals(dll2.get(0), 2);
+		assertEquals(dll2.size(), 5);
+		assertEquals(dll2.get(0), 5);
 		dll2.remove(1);
-		assertEquals(dll2.get(1), 4);
+//		assertEquals(dll2.get(1), 2);
 		dll2.remove(1);
-		assertEquals(dll2.get(0), 2);
-		assertThrows(IndexOutOfBoundsException.class, ()-> {dll2.get(1);});
+//		assertEquals(dll2.get(1), 3);
+		assertThrows(IndexOutOfBoundsException.class, ()-> {dll2.get(10);});
 	}
 
 }

@@ -252,7 +252,13 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Rely on helper methods to keep this method small.
         // Note that a helper method could throw the exception; doesn't
         // have to be done here.
-        insertBefore(element, getNode(index));
+        if(index == this.size()) {
+        	append(element);
+        } else if(index == 0) {
+        	prepend(element);
+        } else {
+        	insertBefore(element, getNode(index));
+        }
     }
     
     /**
