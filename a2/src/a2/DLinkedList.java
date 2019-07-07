@@ -138,7 +138,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     		}
     	}
     	if(index > this.size() / 2) {
-    		int count = this.size();
+    		int count = this.size() - 1;
     		for(Node n = tail; n != null; n=n.pred) {
     			if(count == index)
     				return n;
@@ -264,11 +264,19 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     private E removeNode(Node n) {
         // TODO item #12
         // This is a large helper method
-    	for (Node n1 = head; n1 != null; n1= n1.succ) {
-    		if(n1.equals(n)) {
-    			(n.pred).succ = n.succ;
-    			(n.succ).pred = n.pred;
-    		}
+    	if(n.equals(this.head)) {
+    		this.head = n.succ;
+    		(n.succ).pred = null;
+			n.succ = null;
+    	} else if(n.equals(this.tail)) {
+			this.tail = n.pred;
+			(n.pred).succ = null;
+			n.pred = null;
+    	} else {
+    		(n.pred).succ = n.succ;
+    		(n.succ).pred = n.pred;
+    		n.pred = null;
+    		n.succ = null;
     	}
     	this.size--;
     	return n.data;
