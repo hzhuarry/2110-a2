@@ -145,7 +145,7 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
     			count--;
     		}
     	}
-    	return null;
+		return null;
     }
     
     /**
@@ -222,17 +222,12 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Do NOT test whether node is actually a Node of this list because
         // it will then not be a constant-time operation.
     	Node n = new Node(null, element, null);
-        if(node.pred == null) {
-        	this.head = n;
-        	n.succ = node;
-        	node.pred = n;
-        }
-    	else {
+        //removed if there is nothing in the list
     		n.pred = node.pred;
     		n.succ = node;
     		node.pred = n;
     		(node.pred).succ = n;
-    	}
+    	
     	this.size++;
         return n;
     }
@@ -252,6 +247,8 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // Rely on helper methods to keep this method small.
         // Note that a helper method could throw the exception; doesn't
         // have to be done here.
+    	if(index ==0 || index == 1)
+    		prepend(element);
         insertBefore(element, getNode(index));
     }
     

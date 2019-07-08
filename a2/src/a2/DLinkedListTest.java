@@ -46,6 +46,29 @@ class DLinkedListTest {
 		dll2.remove(1);
 		assertEquals(dll2.get(0), 2);
 		assertThrows(IndexOutOfBoundsException.class, ()-> {dll2.get(1);});
+		
+		DLinkedList<Integer> dll3 = new DLinkedList<Integer>();
+		dll3.add(1);
+		dll3.add(2);
+		dll3.add(3);
+		dll3.add(4);
+		dll3.add(3,5);
+		assertEquals(5, dll3.get(3));
+		
+		DLinkedList<Integer> dll4 = new DLinkedList<Integer>();
+		dll4.add(1);
+		dll4.add(2);
+		dll4.add(3);
+		dll4.add(4);
+		dll4.add(0, 5);
+		assertEquals(5, dll4.get(0));
+		dll4.add(1, 6);
+		assertEquals(6, dll4.get(0));
+		
+		DLinkedList<Integer> dll5 = new DLinkedList<Integer>();
+		dll5.add(0, 1);
+		assertEquals(1, dll5.get(0));
+	
 	}
 
 }
