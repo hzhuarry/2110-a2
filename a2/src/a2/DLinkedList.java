@@ -74,10 +74,11 @@ public class DLinkedList<E> extends java.util.AbstractList<E> {
         // This should use field tail and the pred fields in nodes.
         // Do NOT use field size.
     	String res = "[";
-        for (Node n = tail; n != null; n= n.pred) {
-        	if (n != tail)
-        		res = res + ", ";
-        	res = res + n.data;
+        for (Node n = tail; n != null; n=n.pred) {
+        	res+=n.data;
+        	if(n.pred!=null) {
+        		result+=", ";
+        	}
         }
         return res + "]";
     }
